@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Discover Killarney, Ireland</title>
+
+    <!-- Load the ArcGIS Maps SDK for JavaScript from CDN -->
+    <script type="module" src="https://js.arcgis.com/5.1/"></script>
+
+    <!-- Load the CSS for the widgets -->
+    <link rel="stylesheet" href="https://js.arcgis.com/5.1/esri/themes/light/main.css" />
+    
+    <!-- Load the CSS styles -->
+    <style>
+       html,
+body {
+    min-height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #DDE8D5;
+    color: #243b2a;
+    font-family: Arial, sans-serif;
+}
+
+        #viewDiv {
+            height: 400px;
+            width: 400px;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-family: Tahoma;
+            font-size: 32px;
+            font-weight: bold;
+            color: #24563b;
+        }
+
+            p {
+    font-family: Arial;
+    font-size: 16px;
+    font-style: normal;
+    color: #243b2a;
+    line-height: 1.6;
+}
+a {
+    color: #174EA6;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #7B2D8D;
+}
+        }
+
+        ul {
+            font-family: Arial;
+            font-size: 16px;
+	    font-style:normal;
+            color: #243b2a;
+        }
+
+        img {}
+    </style>
+
+    <!-- Load the JavaScript -->
+    <script type="module">
+        // Import the needed modules into the JavaScript
+        const [Map, MapView] = await $arcgis.import([
+            "@arcgis/core/Map.js",
+            "@arcgis/core/views/MapView.js"
+        ]);
+
+        let myMap = new Map({
+            basemap: "streets"
+        });
+
+        let myView = new MapView({
+            container: "viewDiv",
+            map: myMap,
+            zoom: 12,
+            center: [-9.5044, 52.0599] //[longitude, latitude]
+        });
+    </script>
+</head>
+
+<!-- Web page body -->
+
+    <body>
+
+    <h1>Why I Love Killarney, Ireland</h1>
+
+    <img
+        src="https://images.unsplash.com/photo-1590089415225-401ed6f9db8e"
+        alt="Beautiful scenery in Ireland"
+        width="500">
+
+    <p>
+        Killarney is a beautiful town in southwestern Ireland
+        known for its mountains, lakes, and historic landmarks.
+        I love the peaceful scenery, Irish culture, and the
+        opportunity to explore nature. Killarney is a great
+        place to visit because there is so much to see and do.
+    </p>
+
+    <h2>Things to Do in Killarney</h2>
+
+    <ul>
+        <li>Explore Killarney National Park</li>
+        <li>Visit Ross Castle</li>
+        <li>Walk through Muckross House and Gardens</li>
+        <li>Drive the Ring of Kerry</li>
+        <li>Explore local shops and restaurants</li>
+    </ul>
+
+    <p>
+        <a href="https://www.discoverireland.ie/killarney"
+           target="_blank" rel="noopener noreferrer">
+            For more information
+        </a>
+    </p>
+
+    <h2>Map of Killarney</h2>
+
+    <div id="viewDiv"></div>
+
+</body>
+
+</html>
